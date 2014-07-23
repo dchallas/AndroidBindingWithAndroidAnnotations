@@ -1,22 +1,27 @@
-Android Annotations support
+Android-Binding with Android Annotations support
 ===========================
 
-I modified Android-Binding to support Android annotations. In AA View is constructed automatically with @EActivity(R.layout.activity_init) annotations. I wanted to be able to reuse the already-created view in the @AfterViews method. In order to do that I added the method inflateViewFromExistingView() in Binder.
+I modified Android-Binding to support Android annotations. In A-A Views are constructed automatically with @EActivity annotations. 
 
-  public InflateResult inflateViewFromExistingView(Context context,  View view, int layoutId);
+I wanted to be able to reuse the already-created view in the @AfterViews method. In order to do that I added Binder.inflateViewFromExistingView() method.
+
+``` 
+public InflateResult inflateViewFromExistingView(Context context,  View view, int layoutId);
+
 where:
 view - is the created view to reuse
 layoutId - is the resource xml definition of the view (e.g.  R.layout.activity_init)
+```
 
 ## Sample usage
 
+```
 @AfterViews
 protected void afterViews() {
 	Binder.InflateResult inflateResult = Binder.inflateViewFromExistingView(this, findViewById(R.id.drawer_layout), R.layout.activity_init);
 	Binder.bindView(this, inflateResult, mViewModel);
 }
-
-
+```
 
 
 
