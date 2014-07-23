@@ -45,6 +45,9 @@ View:
         binding:entries="testList" />
 ```
 
+
+fork author: Bartosz Kosarzycki
+
 AndroidBinding
 ==============
 
