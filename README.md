@@ -23,7 +23,27 @@ protected void afterViews() {
 }
 ```
 
+Spinner support in Android-Binding
+===========================
+I added Android Spinner support with SpinnerViewProvider.
 
+ViewModel:
+
+```
+public IObservableCollection<String> testList = new ArrayListObservable<String>(
+          String.class,
+          new String[] {new String("Element 1"), new String("Element 2")}
+);
+```
+
+View:
+
+```
+<Spinner android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/testListSpinner"
+        binding:entries="testList" />
+```
 
 AndroidBinding
 ==============
